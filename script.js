@@ -1,3 +1,5 @@
+
+//function for coin count
 let coinCount = 100;
 
 function decreaseCoins() {
@@ -9,7 +11,6 @@ function decreaseCoins() {
             }
         }
 
-// Function to update coin display
         function updateCoinDisplay() {
             const coinText = document.getElementById('coinText');
             if (coinText) {
@@ -17,28 +18,49 @@ function decreaseCoins() {
             }
         }
 
-// Add event listeners to all "Call" buttons
-        //document.addEventListener('DOMContentLoaded', () => {
-            //const callButtons = document.querySelectorAll('.call-button');
-            //callButtons.forEach(button => {
-                //button.addEventListener('click', decreaseCoins);
-           //});
-        //});
-
-        // Initial display update
-        //updateCoinDisplay();
 
 
+// function for copy count
         let copyCount = 0; 
         function increaseCopyCount() {
             copyCount += 1;
             updateCopyDisplay();
         }
-        
-// Function to update copy display
+
+
         function updateCopyDisplay() {
             const copyCountDisplay = document.getElementById('copyCountDisplay');
             if (copyCountDisplay) {
                 copyCountDisplay.textContent = `${copyCount} Copy${copyCount !== 1 ? 's' : ''}`;
             }
+        }
+
+
+//function for heart count
+    let heartCount = 0;
+    function increaseHeartCount(){
+        heartCount += 1;
+        updateHeartDisplay();
+    }
+
+      function updateHeartDisplay() {
+            const heartText = document.getElementById('heartText');
+            if (heartText) {
+                heartText.textContent = heartCount;
+            }
+        }
+
+//fuction for call history
+
+  function addToCallHistory(service, number, callback) {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: true });
+            const listItem = document.createElement('li');
+            listItem.textContent = `${service} ${number} ${time}`;
+            document.getElementById('callHistory').appendChild(listItem);
+            if (callback) callback();
+        }
+
+        function clearCallHistory() {
+            document.getElementById('callHistory').innerHTML = '';
         }
