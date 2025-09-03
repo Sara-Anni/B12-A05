@@ -9,13 +9,19 @@ Answer:(a)getElementById:It finds one thing on the webpage by its unique id. And
 
 2. How do you **create and insert a new element into the DOM**?
 Answer:Steps to create and insert a new element to DOM is given below:
-(a)At first ew use document.createElement() to create a new HTML element.
-
-
-
-
+we use document.createElement() to make a new element and appendChild() or append() to add it.
+Example:
+let x = document.createElement("x");
+x.textContent = "Yay I know the answer!";
+document.body.appendChild(x);
 
 3. What is **Event Bubbling** and how does it work?
+Answer:Event bubbling means when we click on a child element, the event goes up to its parent, then grandparent, and so on until the root.
+
 4. What is **Event Delegation** in JavaScript? Why is it useful?
+Answer:Event delegation means adding one event listener to a parent element instead of adding it to many child elements.It is useful because it saves memory and works even for new child elements added later.
+
 5. What is the difference between **preventDefault() and stopPropagation()** methods?
+Answer:(a)preventDefault() stops the default action such as- stopping a link from opening.
+(b)stopPropagation() stops the event from bubbling up to parent elements.
 
