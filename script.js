@@ -56,10 +56,29 @@ function decreaseCoins() {
             const now = new Date();
             const time = now.toLocaleTimeString('en-US', { hour12: true });
             const listItem = document.createElement('li');
-            listItem.textContent = `${service} ${number} ${time}`;
-            document.getElementById('callHistory').appendChild(listItem);
-            if (callback) callback();
-        }
+
+
+        listItem.className = 'bg-gray-100 p-2 rounded flex justify-between items-center';
+    
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'flex flex-col';
+
+        const serviceSpan = document.createElement('span');
+        serviceSpan.textContent = service;
+
+        const numberSpan = document.createElement('span');
+        numberSpan.textContent = number;
+        contentDiv.appendChild(serviceSpan);
+        contentDiv.appendChild(numberSpan);
+    
+        const timeSpan = document.createElement('span');
+        timeSpan.textContent = time;
+    
+    listItem.appendChild(contentDiv);
+    listItem.appendChild(timeSpan);
+    document.getElementById('callHistory').appendChild(listItem);
+    if (callback) callback();
+}
 
         function clearCallHistory() {
             document.getElementById('callHistory').innerHTML = '';
